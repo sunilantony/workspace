@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+        android:orientation="horizontal" 
+        android:paddingTop="20dp" >
+	    <TextView
+	        android:id="@+id/textViewDate"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/enter_date"
+	        android:paddingLeft="10dp"
+            android:paddingTop="20dp"
+	        android:textAppearance="?android:attr/textAppearanceLarge" />
+	    <Button
+        	android:id="@+id/buttonDate"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content" 
+        	android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:onClick="showDatePickerDialog"  />
+ 	</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+        android:orientation="horizontal" 
+        android:paddingTop="20dp" >
+	    <TextView
+	        android:id="@+id/textViewLaps"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/laps"
+	        android:paddingLeft="10dp"
+            android:paddingTop="20dp"
+	        android:textAppearance="?android:attr/textAppearanceLarge" />
+	    <Button
+        	android:id="@+id/buttonLaps"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content" 
+        	android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:onClick="showNumPickerDialog"  />
+ 	</LinearLayout>
+	
+    <LinearLayout
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+        android:orientation="horizontal" 
+        android:paddingTop="20dp" >
+	    <TextView
+	        android:id="@+id/textViewDistance"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/distance"
+	        android:paddingTop="20dp"
+            android:paddingLeft="10dp"
+	        android:textAppearance="?android:attr/textAppearanceLarge" />
+	    <TextView
+        	android:id="@+id/tvUpdateDistance"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content" 
+        	android:paddingLeft="10dp" />
+	</LinearLayout>
+	
+    <LinearLayout
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+        android:orientation="horizontal" 
+        android:paddingTop="20dp" >
+	    <TextView
+	        android:id="@+id/textViewTime"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/time"
+	        android:paddingTop="20dp"
+            android:paddingLeft="10dp"
+	        android:textAppearance="?android:attr/textAppearanceLarge" />
+	    <Button
+        	android:id="@+id/buttonTime"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content" 
+        	android:paddingLeft="20dp"
+            android:paddingTop="5dp"  
+            android:onClick="showTimePickerDialog" />
+	</LinearLayout>
+	
+    <LinearLayout
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center" 
+        android:paddingTop="20dp" >
+	    <Button
+	        android:id="@+id/buttonCancel"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/cancel" 
+	        android:onClick="cancelDataEntry" />
+	    
+	    <Button
+        	android:id="@+id/buttonSave"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:text="@string/save" 
+        	android:onClick="saveRecord"  />
+	</LinearLayout>
+    	
+</LinearLayout>
