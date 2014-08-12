@@ -1,9 +1,14 @@
 package com.example.mystats;
 
+import java.util.ArrayList;
 import java.util.Date;
+
+import com.example.mystats.MainActivity;
+import com.example.mystats.MyAdapter;
 
 import android.app.Activity;
 import android.app.ListFragment;
+import android.content.Context;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.util.Log;
@@ -11,13 +16,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
 public class DateListFragment extends ListFragment {
-	private static final String TAG = "TitlesFragment";
+	private static final String TAG = "DateListFragment";
 	private ListSelectionListener mListener = null;
-
+	private MyAdapter dateAdapter;
+	private ListView lv;
+	
 	public interface ListSelectionListener {
 		public void onListSelection(int index);
 	}
@@ -45,12 +53,16 @@ public class DateListFragment extends ListFragment {
 	public void onCreate(Bundle savedInstanceState) {
 		Log.i(TAG, getClass().getSimpleName() + ":entered onCreate()");
 		super.onCreate(savedInstanceState);
+				
 	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		Log.i(TAG, getClass().getSimpleName() + ":entered onCreate()");
+		Log.i(TAG, getClass().getSimpleName() + ":entered onCreateView()");
+		
+		lv = (ListView) container.findViewById(R.id.dateListView);
+		
 		return super.onCreateView(inflater, container, savedInstanceState);
 	}
 
@@ -60,36 +72,27 @@ public class DateListFragment extends ListFragment {
 		Log.i(TAG, getClass().getSimpleName() + ":entered onActivityCreated()");
 		super.onActivityCreated(savedState);
 		
-		setListAdapter(new ArrayAdapter<Date>(getActivity(), R.layout.date_list_item, MainActivity.dateList));
+		//create the adapter to hold the array of dates
+		dateAdapter = new MyAdapter(getActivity(), MainActivity.dateList);
+	    //attach the array adapter to the list view
+		lv.setAdapter(dateAdapter);
 		getListView().setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-/*		TextView textView = (TextView) getListView()
-				.findViewById(R.id.dateitemtext);
-				
-//		Log.i(TAG,"First date is " + DateFormat.format("dd-MM-yyyy", tmpdate1));
-		Date tmpdate1 = new Date (2014 - 1900, 8, 6);
-		textView.setText(DateFormat.format("dd-MM-yyyy", tmpdate1).toString());  */
-		
-		Date tmpdate1 = new Date (2014 - 1900, 8, 6);
-		final LayoutInflater factory = getActivity().getLayoutInflater();
-		final View textEntryView =  factory.inflate(R.layout.date_list_item, null);
-		TextView textView = (TextView) textEntryView.findViewById(R.id.dateitemtext);
-		
-		Log.i(TAG,"First date is " + DateFormat.format("dd-MMM-yyyy", tmpdate1));
-
-		textView.setText(DateFormat.format("dd-MMM-yyyy", tmpdate1));
-		
+		setListShown(false);
 	}
 
 	@Override
 	public void onStart() {
 		Log.i(TAG, getClass().getSimpleName() + ":entered onStart()");
 		super.onStart();
+		setListShown(true);
 	}
 
 	@Override
 	public void onResume() {
 		Log.i(TAG, getClass().getSimpleName() + ":entered onResume()");
 		super.onResume();
+		dateAdapter.notifyDataSetChanged();
+		
 	}
 
 	@Override

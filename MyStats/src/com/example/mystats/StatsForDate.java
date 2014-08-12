@@ -259,10 +259,13 @@ public class StatsForDate extends Activity {
 			
 			// temporary check to verify data is written correctly
 			readData();
+			readDates();
+			
+			long milliseconds = date.getTime();
 			
 			// Create a new intent and send the date back to main activity
 			Intent dateSendIntent = new Intent(StatsForDate.this, MainActivity.class);
-			dateSendIntent.putExtra("saveddate", date);
+			dateSendIntent.putExtra("saved_date", milliseconds);
 						
 			// set Activity's result with result code RESULT_OK
 			setResult(RESULT_OK, dateSendIntent);
@@ -324,6 +327,13 @@ public class StatsForDate extends Activity {
 		    Log.d("Distance", cursor.getString(2));
 		    Log.d("Time ", cursor.getString(3));
 		    Log.d("CSS", cursor.getString(4));
+		}
+		
+		/*
+		 * Read back the dates to display onto the List Fragment 
+		 */
+		public void readDates() {
+			
 		}
 		
 		// Delete all records
