@@ -15,6 +15,7 @@ public class StatsDB extends SQLiteOpenHelper{
     static final String SET2_DISTANCE = "dist2";
     static final String SET2_TIME = "time2";
     static final String CSS = "css";
+	final private Context mContext;
     
     final static String[] columns = { DATE, SET1_LAPS, SET1_DISTANCE, SET1_TIME, SET2_LAPS,
     									SET2_DISTANCE, SET2_TIME, CSS };
@@ -24,14 +25,15 @@ public class StatsDB extends SQLiteOpenHelper{
                 DATE + " INT PRIMARY KEY, " +
                 SET1_LAPS + " INT," +
                 SET1_DISTANCE + " INT, " +
-                SET1_TIME + " TEXT, " +
+                SET1_TIME + " INT, " +
                 SET2_LAPS + " INT, " +
                 SET2_DISTANCE + " INT, " +
-                SET2_TIME + " TEXT, " +
-                CSS + " TEXT );";
+                SET2_TIME + " INT, " +
+                CSS + " REAL );";
 
     StatsDB(Context context) {
         super(context, TIMINGS_TABLE_NAME, null, DATABASE_VERSION);
+        this.mContext = context;
     }
 
     @Override
@@ -41,7 +43,15 @@ public class StatsDB extends SQLiteOpenHelper{
     
     @Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		// N/A
+    	// Drop older books table if existed
+       db.execSQL("DROP TABLE IF EXISTS books");
+ 
+        // create fresh books table
+        this.onCreate(db);
+	}
+    
+    void deleteDatabase() {
+		mContext.deleteDatabase(TIMINGS_TABLE_NAME);
 	}
 
 }

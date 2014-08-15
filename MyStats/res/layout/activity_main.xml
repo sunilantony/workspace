@@ -28,15 +28,8 @@
     			<FrameLayout
         			android:id="@+id/datelist_fragment_container"
         			android:layout_width="match_parent"
-        			android:layout_height="match_parent" >
-        			<ListView
-       					android:id="@+id/dateListView"
-        				android:layout_width="match_parent"
-        				android:layout_height="wrap_content" 
-        				android:layout_margin="10dp" >
-    				</ListView>
-        		</FrameLayout>
-
+        			android:layout_height="match_parent" />
+        			
     			<FrameLayout
         			android:id="@+id/stats_fragment_container"
         			android:layout_width="0dp"

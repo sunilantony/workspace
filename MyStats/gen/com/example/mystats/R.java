@@ -26,29 +26,35 @@ public final class R {
     }
     public static final class drawable {
         public static final int ic_launcher=0x7f020000;
+        public static final int rectangle=0x7f020001;
     }
     public static final class id {
-        public static final int action_settings=0x7f090014;
-        public static final int buttonCancel=0x7f09000d;
-        public static final int buttonDate=0x7f090006;
-        public static final int buttonEnterStats=0x7f090004;
+        public static final int action_settings=0x7f090019;
+        public static final int buttonCancel=0x7f090011;
+        public static final int buttonDate=0x7f090005;
+        public static final int buttonEnterStats=0x7f090003;
         public static final int buttonLaps=0x7f090008;
-        public static final int buttonSave=0x7f09000e;
+        public static final int buttonLaps2=0x7f09000e;
+        public static final int buttonSave=0x7f090012;
         public static final int buttonTime=0x7f09000c;
-        public static final int colon=0x7f090011;
-        public static final int dateListView=0x7f090002;
-        public static final int dateitemtext=0x7f09000f;
+        public static final int buttonTime2=0x7f090010;
+        public static final int colon=0x7f090015;
+        public static final int dateitemtext=0x7f090013;
         public static final int datelist_fragment_container=0x7f090001;
-        public static final int numberPickerMin=0x7f090010;
-        public static final int numberPickerSec=0x7f090012;
-        public static final int statsView=0x7f090013;
-        public static final int stats_fragment_container=0x7f090003;
+        public static final int listview_background_shape=0x7f090018;
+        public static final int numberPickerMin=0x7f090014;
+        public static final int numberPickerSec=0x7f090016;
+        public static final int statsView=0x7f090017;
+        public static final int stats_fragment_container=0x7f090002;
         public static final int textView1=0x7f090000;
-        public static final int textViewDate=0x7f090005;
+        public static final int textViewDate=0x7f090004;
         public static final int textViewDistance=0x7f090009;
         public static final int textViewLaps=0x7f090007;
+        public static final int textViewSet1=0x7f090006;
+        public static final int textViewSet2=0x7f09000d;
         public static final int textViewTime=0x7f09000b;
         public static final int tvUpdateDistance=0x7f09000a;
+        public static final int tvUpdateDistance2=0x7f09000f;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -63,18 +69,20 @@ public final class R {
     public static final class string {
         public static final int action_settings=0x7f060001;
         public static final int app_name=0x7f060000;
-        public static final int cancel=0x7f06000c;
-        public static final int default_distance=0x7f060009;
-        public static final int default_laps=0x7f060008;
-        public static final int default_time=0x7f06000a;
-        public static final int distance=0x7f060006;
+        public static final int cancel=0x7f06000e;
+        public static final int default_distance=0x7f06000b;
+        public static final int default_laps=0x7f06000a;
+        public static final int default_time=0x7f06000c;
+        public static final int distance=0x7f060008;
         public static final int enter_date=0x7f060004;
         public static final int enter_stats=0x7f060003;
         public static final int laps=0x7f060005;
-        public static final int save=0x7f06000b;
+        public static final int save=0x7f06000d;
         public static final int select_date=0x7f060002;
-        public static final int statsTitle=0x7f06000d;
-        public static final int time=0x7f060007;
+        public static final int set1=0x7f060006;
+        public static final int set2=0x7f060007;
+        public static final int statsTitle=0x7f06000f;
+        public static final int time=0x7f060009;
     }
     public static final class style {
         /** 

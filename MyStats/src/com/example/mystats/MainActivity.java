@@ -41,12 +41,12 @@ public class MainActivity extends Activity implements
 		setContentView(R.layout.activity_main);
 		
 		dateList = new ArrayList<Date> ();
-		Date tmpdate1 = new Date (2014 - 1900, 8, 12);
+		//Date tmpdate1 = new Date (2014 - 1900, 8, 12);
 		//Date tmpdate2 = new Date (2014 - 1900, 8, 7);
 		//Date tmpdate3 = new Date (2014 - 1900, 8, 8);
 		//Date tmpdate4 = new Date (2014 - 1900, 8, 9);
 		//Date tmpdate5 = new Date (2014 - 1900, 8, 10);
-		dateList.add(tmpdate1);
+		//dateList.add(tmpdate1);
 		//dateList.add(tmpdate2);
 		//dateList.add(tmpdate3);
 		//dateList.add(tmpdate4);
@@ -109,7 +109,7 @@ public class MainActivity extends Activity implements
 		if (!mStatsFragment.isAdded()) {
 			FragmentTransaction fragmentTransaction = mFragmentManager
 					.beginTransaction();
-			fragmentTransaction.add(R.id.stats_fragment_container,
+			fragmentTransaction.replace(R.id.stats_fragment_container,
 					mStatsFragment);
 			fragmentTransaction.addToBackStack(null);
 			fragmentTransaction.commit();
@@ -133,19 +133,16 @@ public class MainActivity extends Activity implements
 		    	Date tmpDate=new Date(millisec);
 		    	dateList.add(tmpDate);
 		    	
+		    	//debug printing
+		    	printDateList();
+		    	
 		    }
 		}
-		    
-	/*	if(requestCode == GET_REQUEST_CODE) {
-			if (resultCode == RESULT_OK) {
-				Bundle extras = data.getExtras();
-				Log.i(TAG,"Date received is " + extras.getLong("saved_date"));
-				//final long gotDate = data.getLongExtra("saveddate",0); 
-				Log.i(TAG,"Date received is " + extras.getLong("saved_date"));
-				//dateList.add(gotDate);
-				
-			}
-		} */
+	}
+	
+	public void printDateList() {
+		for (int i = 0; i < dateList.size(); i++)
+			Log.i("the Dates are ", i + ". " + dateList.get(i));
 	}
 	
 }

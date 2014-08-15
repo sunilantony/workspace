@@ -1,6 +1,5 @@
 package com.example.mystats;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 import com.example.mystats.MainActivity;
@@ -8,23 +7,23 @@ import com.example.mystats.MyAdapter;
 
 import android.app.Activity;
 import android.app.ListFragment;
-import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.FrameLayout;
 import android.widget.ListView;
-import android.widget.TextView;
+import com.example.mystats.StatsDB;
 
 public class DateListFragment extends ListFragment {
+	
 	private static final String TAG = "DateListFragment";
 	private ListSelectionListener mListener = null;
 	private MyAdapter dateAdapter;
-	private ListView lv;
+	private StatsDB statsDbHelper;
+	private SQLiteDatabase mDB = null;
 	
 	public interface ListSelectionListener {
 		public void onListSelection(int index);
@@ -53,6 +52,11 @@ public class DateListFragment extends ListFragment {
 	public void onCreate(Bundle savedInstanceState) {
 		Log.i(TAG, getClass().getSimpleName() + ":entered onCreate()");
 		super.onCreate(savedInstanceState);
+		
+		statsDbHelper = new StatsDB(getActivity());
+		
+		// fill the list with current dates in the DB
+		fillList();
 				
 	}
 
@@ -60,10 +64,10 @@ public class DateListFragment extends ListFragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		Log.i(TAG, getClass().getSimpleName() + ":entered onCreateView()");
-		
-		lv = (ListView) container.findViewById(R.id.dateListView);
-		
+				
 		return super.onCreateView(inflater, container, savedInstanceState);
+		
+
 	}
 
 
@@ -75,16 +79,45 @@ public class DateListFragment extends ListFragment {
 		//create the adapter to hold the array of dates
 		dateAdapter = new MyAdapter(getActivity(), MainActivity.dateList);
 	    //attach the array adapter to the list view
-		lv.setAdapter(dateAdapter);
+		setListAdapter(dateAdapter);
 		getListView().setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-		setListShown(false);
+			
+	}
+	
+	public void fillList() {
+		// Get the underlying database for reading
+		mDB = statsDbHelper.getReadableDatabase();
+		
+		// build query
+		Cursor cursor =
+			mDB.query(StatsDB.TIMINGS_TABLE_NAME, // a. table
+		        		StatsDB.columns, // b. column names
+		        		null, // c. selections
+				        null, // d. selections args
+				        null, // e. group by
+				        null, // f. having
+				        null, // g. order by
+				        null); // h. limit
+				    
+		// if we got results get the first one
+		    if (cursor != null)
+		            cursor.moveToFirst();
+
+	    // loop through the queried list and add date into dateList
+		    while (!cursor.isAfterLast()) {
+		    	Log.d("Date ", cursor.getString(cursor.getColumnIndex(StatsDB.DATE)));
+		    	Date tmpDate = new Date(cursor.getLong(cursor.getColumnIndex(StatsDB.DATE)));
+		    	Log.i(TAG,"Date received is " + tmpDate);
+		    	MainActivity.dateList.add(tmpDate);
+		        cursor.moveToNext();
+		      }
+	    cursor.close();
 	}
 
 	@Override
 	public void onStart() {
 		Log.i(TAG, getClass().getSimpleName() + ":entered onStart()");
 		super.onStart();
-		setListShown(true);
 	}
 
 	@Override

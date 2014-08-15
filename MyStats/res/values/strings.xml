@@ -8,6 +8,8 @@
     <string name="enter_stats">Enter Stats</string>
     <string name="enter_date">Date (D-M-Y): </string>
     <string name="laps">Laps:</string>
+    <string name="set1">Set 1</string>
+    <string name="set2">Set 2</string>
     <string name="distance">Distance(m): </string>
     <string name="time">Time (min:sec): </string>
     <string name="default_laps">0</string>

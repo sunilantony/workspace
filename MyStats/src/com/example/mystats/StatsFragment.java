@@ -18,7 +18,7 @@ public class StatsFragment extends Fragment {
 
 	private TextView mStatsView = null;
 	private int mCurrIdx = -1;
-	private int mQuoteArrLen;
+	private int mDateArrLen;
 	private StatsDB statsDbHelper;
 	private SQLiteDatabase mDB = null;
 
@@ -27,7 +27,7 @@ public class StatsFragment extends Fragment {
 	}
 
 	void showIndex(int newIndex) {
-		if (newIndex < 0 || newIndex >= mQuoteArrLen)
+		if (newIndex < 0 || newIndex > mDateArrLen)
 			return;
 		
 		mCurrIdx = newIndex;
@@ -37,20 +37,25 @@ public class StatsFragment extends Fragment {
 		  		mDB.query(StatsDB.TIMINGS_TABLE_NAME, // a. table
 		            		StatsDB.columns, // b. column names
 		            		" date = ?", // c. selections
-		            		new String[] { date.toString() }, // d. selections args
+		            		new String[] { Long.toString(date.getTime()) }, // d. selections args
 		            		null, // e. group by
 		            		null, // f. having
 		            		null, // g. order by
 		            		null); // h. limit
+		   
 		// 3. if we got results get the first one
 	    if (cursor != null)
-            cursor.moveToFirst();
-	    
-		mStatsView.setText(cursor.getString(1));
-		mStatsView.setText(cursor.getString(2));
-		mStatsView.setText(cursor.getString(3));
-		mStatsView.setText(cursor.getString(4));
+	    	cursor.moveToFirst();
+           	    
+		mStatsView.setText("Laps1:" + cursor.getString(cursor.getColumnIndex(StatsDB.SET1_LAPS)) + System.getProperty("line.separator") + 
+							"Distance1:" + cursor.getString(cursor.getColumnIndex(StatsDB.SET1_DISTANCE)) + System.getProperty("line.separator") +
+							"Time1:" + cursor.getString(cursor.getColumnIndex(StatsDB.SET1_TIME)) + System.getProperty("line.separator") +
+							"Laps2:" + cursor.getString(cursor.getColumnIndex(StatsDB.SET2_LAPS)) + System.getProperty("line.separator") + 
+							"Distance2:" + cursor.getString(cursor.getColumnIndex(StatsDB.SET2_DISTANCE)) + System.getProperty("line.separator") +
+							"Time2:" + cursor.getString(cursor.getColumnIndex(StatsDB.SET2_TIME)) + System.getProperty("line.separator") +
+							"CSS:" + cursor.getString(cursor.getColumnIndex(StatsDB.CSS)) + System.getProperty("line.separator"));
 		
+		cursor.close();
 	}
 	
 	@Override
@@ -80,13 +85,9 @@ public class StatsFragment extends Fragment {
 		super.onActivityCreated(savedInstanceState);
 
 		mStatsView = (TextView) getActivity().findViewById(R.id.statsView);
-		// why is this length required???
-		mQuoteArrLen = MainActivity.dateList.size();
-		
+
 		// Create a new DatabaseHelper
 		statsDbHelper = new StatsDB(getActivity());
-		// 1. Get the underlying database for reading
-		mDB = statsDbHelper.getReadableDatabase();
 				    
 	}
 	
@@ -94,12 +95,18 @@ public class StatsFragment extends Fragment {
 	public void onStart() {
 		Log.i(TAG, getClass().getSimpleName() + ":entered onStart()");
 		super.onStart();
+
 	}
 	
 	@Override
 	public void onResume() {
 		Log.i(TAG, getClass().getSimpleName() + ":entered onResume()");
 		super.onResume();
+		 
+		// get the updated array size
+		mDateArrLen = MainActivity.dateList.size();
+		// 1. Get the underlying database for reading
+		mDB = statsDbHelper.getReadableDatabase();
 	}
 
 	
@@ -107,6 +114,10 @@ public class StatsFragment extends Fragment {
 	public void onPause() {
 		Log.i(TAG, getClass().getSimpleName() + ":entered onPause()");
 		super.onPause();
+		
+		// close the DB
+		statsDbHelper.close();
+
 	}
 
 	@Override
@@ -119,6 +130,7 @@ public class StatsFragment extends Fragment {
 	public void onDetach() {
 		Log.i(TAG, getClass().getSimpleName() + ":entered onDetach()");
 		super.onDetach();
+
 	}
 	
 	@Override

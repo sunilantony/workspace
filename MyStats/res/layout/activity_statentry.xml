@@ -8,15 +8,15 @@
         android:layout_width="fill_parent"
     	android:layout_height="wrap_content"
         android:orientation="horizontal" 
-        android:paddingTop="20dp" >
+        android:paddingTop="5dp" >
 	    <TextView
 	        android:id="@+id/textViewDate"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="@string/enter_date"
 	        android:paddingLeft="10dp"
-            android:paddingTop="20dp"
-	        android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:paddingTop="5dp"
+	        android:textSize="25sp" />
 	    <Button
         	android:id="@+id/buttonDate"
         	android:layout_width="wrap_content"
@@ -25,20 +25,35 @@
             android:paddingTop="5dp"
             android:onClick="showDatePickerDialog"  />
  	</LinearLayout>
-
+<!-- start of set 1 -->
+<LinearLayout
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+        android:orientation="vertical" 
+        android:paddingTop="5dp"
+    	android:background="@drawable/rectangle" >
+	<TextView
+	        android:id="@+id/textViewSet1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/set1"
+	        android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+	        android:textSize="20sp" />
+	    
     <LinearLayout
         android:layout_width="fill_parent"
     	android:layout_height="wrap_content"
         android:orientation="horizontal" 
-        android:paddingTop="20dp" >
+        android:paddingTop="5dp" >
 	    <TextView
 	        android:id="@+id/textViewLaps"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="@string/laps"
 	        android:paddingLeft="10dp"
-            android:paddingTop="20dp"
-	        android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:paddingTop="5dp"
+	        android:textSize="18sp" />
 	    <Button
         	android:id="@+id/buttonLaps"
         	android:layout_width="wrap_content"
@@ -52,15 +67,15 @@
         android:layout_width="fill_parent"
     	android:layout_height="wrap_content"
         android:orientation="horizontal" 
-        android:paddingTop="20dp" >
+        android:paddingTop="5dp" >
 	    <TextView
 	        android:id="@+id/textViewDistance"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="@string/distance"
-	        android:paddingTop="20dp"
+	        android:paddingTop="5dp"
             android:paddingLeft="10dp"
-	        android:textAppearance="?android:attr/textAppearanceLarge" />
+	        android:textSize="18sp" />
 	    <TextView
         	android:id="@+id/tvUpdateDistance"
         	android:layout_width="wrap_content"
@@ -72,15 +87,15 @@
         android:layout_width="fill_parent"
     	android:layout_height="wrap_content"
         android:orientation="horizontal" 
-        android:paddingTop="20dp" >
+        android:paddingTop="5dp" >
 	    <TextView
 	        android:id="@+id/textViewTime"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="@string/time"
-	        android:paddingTop="20dp"
+	        android:paddingTop="5dp"
             android:paddingLeft="10dp"
-	        android:textAppearance="?android:attr/textAppearanceLarge" />
+	        android:textSize="18sp" />
 	    <Button
         	android:id="@+id/buttonTime"
         	android:layout_width="wrap_content"
@@ -89,7 +104,89 @@
             android:paddingTop="5dp"  
             android:onClick="showTimePickerDialog" />
 	</LinearLayout>
+</LinearLayout>
+<!-- end of set 1 -->
+<!-- start of set 2 -->
+<LinearLayout
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+        android:orientation="vertical" 
+        android:paddingTop="5dp"
+    	android:background="@drawable/rectangle" >
+	<TextView
+	        android:id="@+id/textViewSet2"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/set2"
+	        android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+	        android:textSize="20sp" />
 	
+	    <LinearLayout
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+        android:orientation="horizontal" 
+        android:paddingTop="5dp" >
+	    <TextView
+	        android:id="@+id/textViewLaps"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/laps"
+	        android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+	        android:textSize="18sp" />
+	    <Button
+        	android:id="@+id/buttonLaps2"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content" 
+        	android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:onClick="showNumPickerDialog2"  />
+ 	</LinearLayout>
+	
+    <LinearLayout
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+        android:orientation="horizontal" 
+        android:paddingTop="5dp" >
+	    <TextView
+	        android:id="@+id/textViewDistance"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/distance"
+	        android:paddingTop="5dp"
+            android:paddingLeft="10dp"
+	        android:textSize="18sp" />
+	    <TextView
+        	android:id="@+id/tvUpdateDistance2"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content" 
+        	android:paddingLeft="10dp" />
+	</LinearLayout>
+	
+    <LinearLayout
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+        android:orientation="horizontal" 
+        android:paddingTop="10dp" >
+	    <TextView
+	        android:id="@+id/textViewTime"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/time"
+	        android:paddingTop="10dp"
+            android:paddingLeft="10dp"
+	        android:textSize="20sp" />
+	    <Button
+        	android:id="@+id/buttonTime2"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content" 
+        	android:paddingLeft="20dp"
+            android:paddingTop="5dp"  
+            android:onClick="showTimePickerDialog2" />
+	</LinearLayout>
+	</LinearLayout>
+<!-- end of set 2 -->
     <LinearLayout
         android:layout_width="fill_parent"
     	android:layout_height="wrap_content"
