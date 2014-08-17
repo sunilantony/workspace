@@ -8,20 +8,20 @@
         android:layout_width="fill_parent"
     	android:layout_height="wrap_content"
         android:orientation="horizontal" 
-        android:paddingTop="5dp" >
+        android:paddingTop="2dp" >
 	    <TextView
 	        android:id="@+id/textViewDate"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="@string/enter_date"
 	        android:paddingLeft="10dp"
-            android:paddingTop="5dp"
-	        android:textSize="25sp" />
+            android:paddingTop="2dp"
+	        android:textSize="20sp" />
 	    <Button
         	android:id="@+id/buttonDate"
         	android:layout_width="wrap_content"
         	android:layout_height="wrap_content" 
-        	android:paddingLeft="20dp"
+        	android:paddingLeft="25dp"
             android:paddingTop="5dp"
             android:onClick="showDatePickerDialog"  />
  	</LinearLayout>
@@ -30,7 +30,7 @@
     	android:layout_width="fill_parent"
     	android:layout_height="wrap_content"
         android:orientation="vertical" 
-        android:paddingTop="5dp"
+        android:paddingTop="2dp"
     	android:background="@drawable/rectangle" >
 	<TextView
 	        android:id="@+id/textViewSet1"
@@ -39,7 +39,7 @@
 	        android:text="@string/set1"
 	        android:paddingLeft="10dp"
             android:paddingTop="5dp"
-	        android:textSize="20sp" />
+	        android:textSize="18sp" />
 	    
     <LinearLayout
         android:layout_width="fill_parent"
@@ -53,7 +53,7 @@
 	        android:text="@string/laps"
 	        android:paddingLeft="10dp"
             android:paddingTop="5dp"
-	        android:textSize="18sp" />
+	        android:textSize="15sp" />
 	    <Button
         	android:id="@+id/buttonLaps"
         	android:layout_width="wrap_content"
@@ -75,7 +75,7 @@
 	        android:text="@string/distance"
 	        android:paddingTop="5dp"
             android:paddingLeft="10dp"
-	        android:textSize="18sp" />
+	        android:textSize="15sp" />
 	    <TextView
         	android:id="@+id/tvUpdateDistance"
         	android:layout_width="wrap_content"
@@ -95,7 +95,7 @@
 	        android:text="@string/time"
 	        android:paddingTop="5dp"
             android:paddingLeft="10dp"
-	        android:textSize="18sp" />
+	        android:textSize="15sp" />
 	    <Button
         	android:id="@+id/buttonTime"
         	android:layout_width="wrap_content"
@@ -120,7 +120,7 @@
 	        android:text="@string/set2"
 	        android:paddingLeft="10dp"
             android:paddingTop="5dp"
-	        android:textSize="20sp" />
+	        android:textSize="18sp" />
 	
 	    <LinearLayout
         android:layout_width="fill_parent"
@@ -134,7 +134,7 @@
 	        android:text="@string/laps"
 	        android:paddingLeft="10dp"
             android:paddingTop="5dp"
-	        android:textSize="18sp" />
+	        android:textSize="15sp" />
 	    <Button
         	android:id="@+id/buttonLaps2"
         	android:layout_width="wrap_content"
@@ -156,7 +156,7 @@
 	        android:text="@string/distance"
 	        android:paddingTop="5dp"
             android:paddingLeft="10dp"
-	        android:textSize="18sp" />
+	        android:textSize="15sp" />
 	    <TextView
         	android:id="@+id/tvUpdateDistance2"
         	android:layout_width="wrap_content"
@@ -176,7 +176,7 @@
 	        android:text="@string/time"
 	        android:paddingTop="10dp"
             android:paddingLeft="10dp"
-	        android:textSize="20sp" />
+	        android:textSize="15sp" />
 	    <Button
         	android:id="@+id/buttonTime2"
         	android:layout_width="wrap_content"

@@ -85,6 +85,7 @@ public class StatsForDate extends Activity {
 		public void onDateSet(DatePicker view, int selectedYear, int selectedMonth, int selectedDay) {
 			
 			// set selected date into textview
+			btnChangeDate.setTextSize(20);
 			btnChangeDate.setText(new StringBuilder()
 					.append(selectedDay).append("-").append(selectedMonth + 1).append("-").append(selectedYear)
 					.append(" "));
@@ -137,6 +138,7 @@ public class StatsForDate extends Activity {
 		    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 		        public void onClick(DialogInterface dialog, int whichButton) {
 		        	
+		        	btnSetLaps.setTextSize(15);
 		        	btnSetLaps.setText(Integer.toString(np.getValue()));
 		        	numLaps = np.getValue();
 					totalDist = numLaps*50;
@@ -202,6 +204,7 @@ builder.setView(np);
 builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 public void onClick(DialogInterface dialog, int whichButton) {
 
+	btnSetLaps2.setTextSize(15);
 btnSetLaps2.setText(Integer.toString(np.getValue()));
 numLaps2 = np.getValue();
 totalDist2 = numLaps2*50;
@@ -253,6 +256,7 @@ public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
 	        	        	    
 		    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 		        public void onClick(DialogInterface dialog, int whichButton) {
+		        	btnChangeTime.setTextSize(15);
 		        	btnChangeTime.setText(new StringBuilder()
 					.append(Integer.toString(npm.getValue())).append(":").append(Integer.toString(nps.getValue()))
 					.append(" "));
@@ -307,6 +311,7 @@ nps.setWrapSelectorWheel(true);
 
 builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 public void onClick(DialogInterface dialog, int whichButton) {
+	btnChangeTime2.setTextSize(15);
 btnChangeTime2.setText(new StringBuilder()
 .append(Integer.toString(npm.getValue())).append(":").append(Integer.toString(nps.getValue()))
 .append(" "));
@@ -342,6 +347,7 @@ public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
 			month = c.get(Calendar.MONTH);
 			day = c.get(Calendar.DAY_OF_MONTH);
 			
+			btnChangeDate.setTextSize(20);
 			// set current date into textview
 			btnChangeDate.setText(new StringBuilder()
 				// Month is 0 based, just add 1
@@ -356,36 +362,44 @@ public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
 		//btnChangeTime = (Button) findViewById(R.id.buttonTime);
 		//btnChangeTime2 = (Button) findViewById(R.id.buttonTime2);
 		
+		btnChangeTime.setTextSize(15);
 		btnChangeTime.setText("0:0");
+		btnChangeTime2.setTextSize(15);
 		btnChangeTime2.setText("0:0");
 	}
 	
 	public void updateDistance(int dist) {
 		//tvUpdateDist = (TextView) findViewById(R.id.tvUpdateDistance);
+		tvUpdateDist.setTextSize(15);
 		tvUpdateDist.setText(Integer.toString(dist));
 		
 	}
 	
 	public void updateDistance2(int dist) {
 		//tvUpdateDist2 = (TextView) findViewById(R.id.tvUpdateDistance2);
+		tvUpdateDist2.setTextSize(15);
 		tvUpdateDist2.setText(Integer.toString(dist));
 	}
 	
 
 	public void setDefaultLaps() {
 		//btnSetLaps = (Button) findViewById(R.id.buttonLaps);
+		btnSetLaps.setTextSize(15);
 		btnSetLaps.setText("0");
 		
 		//btnSetLaps2 = (Button) findViewById(R.id.buttonLaps2);
+		btnSetLaps2.setTextSize(15);
 		btnSetLaps2.setText("0");
 			
 	}
 		
 	public void setDefaultDistance() {
 		//tvUpdateDist = (TextView) findViewById(R.id.tvUpdateDistance);
+		tvUpdateDist.setTextSize(15);
 		tvUpdateDist.setText("0");
 		
 		//tvUpdateDist2 = (TextView) findViewById(R.id.tvUpdateDistance2);
+		tvUpdateDist2.setTextSize(15);
 		tvUpdateDist2.setText("0");
 	}
 		
